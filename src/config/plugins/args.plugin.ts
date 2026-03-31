@@ -24,4 +24,16 @@ export const yarg = yargs(process.argv)
         if(argv.b < 1) throw 'Error: base must be greater than 0'
         return true;
     })
+    .option('n',{
+         alias: 'name',
+        type: 'string',
+        default: 'table',
+        describe: 'File Name'
+    })
+    .option('d',{
+         alias: 'destination',
+        type: 'string',
+        default: './outputs',
+        describe: 'File destination'
+    })
     .parseSync()
