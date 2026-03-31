@@ -1,19 +1,21 @@
 import fs from 'fs';
+import { yarg } from './config/plugins/args.plugin';
 
-let outputMessage = '';
-const base = 5; 
+const {b:base, l:limit, s:showTable} = yarg;
+let outputMessage = ''; 
 const headerMessage  =  `
 =======================================
         Tabla del ${base}
 =======================================\n
 `;
 
-for(let i = 1; i <=10 ; i++){
+for(let i = 1; i <=limit ; i++){
     outputMessage += `${base} x ${i} = ${base * i} \n`
 }
 
 outputMessage = headerMessage + outputMessage;
-console.log(outputMessage);
+showTable ? console.log(outputMessage) : console.log('Archivo creado')
+
 
 const outputPath = `outputs/`; 
 fs.mkdirSync(outputPath, {recursive: true})
