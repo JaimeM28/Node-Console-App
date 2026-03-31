@@ -9,5 +9,5 @@ import { yarg } from "./config/plugins/args.plugin";
 })();
 
 async function main() {
-    console.log(yarg.base)
+    console.log(yarg)
 }
